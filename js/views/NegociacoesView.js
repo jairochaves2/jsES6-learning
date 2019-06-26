@@ -31,14 +31,10 @@ class NegociacoesView{
                 <td colspan="3">Total</td>
                 <td>
                 ${
-                    (function(){
-                        let totalVolume=0;
-                        model.negociacoes.forEach(n => totalVolume+=n.volume);
-                        return totalVolume;
-                    })()//estou chamando a função anônima que acabei de declarar
-
-                }
-                
+                    model.negociacoes.reduce(function(totalVolume,itemLista){
+                        return totalVolume+itemLista.volume;
+                    },0.0)
+               }
                 </td>
             </tfoot>
         </table>`;
