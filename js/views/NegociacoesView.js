@@ -14,7 +14,7 @@ class NegociacoesView{
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody> 
                 ${model.negociacoes.map((n)=>{
                     return `
                     <tr>
@@ -28,6 +28,18 @@ class NegociacoesView{
             </tbody>
 
             <tfoot>
+                <td colspan="3">Total</td>
+                <td>
+                ${
+                    (function(){
+                        let totalVolume=0;
+                        model.negociacoes.forEach(n => totalVolume+=n.volume);
+                        return totalVolume;
+                    })()//estou chamando a função anônima que acabei de declarar
+
+                }
+                
+                </td>
             </tfoot>
         </table>`;
 
@@ -36,6 +48,3 @@ class NegociacoesView{
         this._elemento.innerHTML=this._template(model);
     }
 }
-/*
-
-*/
