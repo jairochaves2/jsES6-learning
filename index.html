@@ -11,6 +11,8 @@
 
     <h1 class="text-center">Negociações</h1>
 
+    <div id="mensagemView"></div>
+
     <form class="form" onsubmit="negocicaoController.adiciona(event)">
 
         <div class="form-group">
@@ -35,7 +37,7 @@
         <button class="btn btn-primary text-center" type="button">
             Importar Negociações
         </button>
-        <button class="btn btn-primary text-center" type="button">
+        <button onclick="negocicaoController.apaga()" class="btn btn-primary text-center" type="button">
             Apagar
         </button>
     </div>
@@ -47,7 +49,10 @@
   <script src="js/controllers/NegociacaoController.js" charset="utf-8"></script>
   <script src="js/helpers/DateHelper.js" charset="utf-8"></script>
   <script src="js/models/ListaNegociacoes.js" charset="utf-8"></script>
+  <script src="js/models/Mensagem.js" charset="utf-8"></script>
+  <script src="js/views/View.js" charset="utf-8"></script>
   <script src="js/views/NegociacoesView.js" charset="utf-8"></script>
+  <script src="js/views/MensagemView.js" charset="utf-8"></script>
 
   <script>
     let negocicaoController=new NegociacaoController();
