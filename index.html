@@ -58,14 +58,14 @@
     let negocicaoController=new NegociacaoController();
   </script>
   <script>
-      let negociacao2=new Proxy(new Negociacao(new Date(),1,100),{
-        get: function(target,prop,receiver){
-            console.log(`a propriedade ${prop} foi interceptada`);
-            return Reflect.get(target,prop,receiver);
+      //executa ao inserir
+      let lista=new Proxy(new ListaNegociacoes(),{
+        set: function(target,prop,value,receiver){
+            console.log(`${prop} -> valor anterior: ${target[prop]},novo valor${value}`);
+            return Reflect.set(target,prop,value,receiver);
         }
       });
-      console.log(negociacao2.quantidade);
-      console.log(negociacao2.valor);
+      lista.adiciona(new Negociacao(new Date(),1,100));
   </script>
 </body>
 </html>
