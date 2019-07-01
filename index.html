@@ -34,7 +34,7 @@
     </form>
 
     <div class="text-center">
-        <button class="btn btn-primary text-center" type="button">
+        <button onclick="negocicaoController.importaNegociacoes()" class="btn btn-primary text-center" type="button">
             Importar Negociações
         </button>
         <button onclick="negocicaoController.apaga()" class="btn btn-primary text-center" type="button">
@@ -53,15 +53,11 @@
   <script src="js/views/View.js" charset="utf-8"></script>
   <script src="js/views/NegociacoesView.js" charset="utf-8"></script>
   <script src="js/views/MensagemView.js" charset="utf-8"></script>
+  <script src="js/services/ProxyFactory.js" charset="utf-8"></script>
+  <script src="js/helpers/Bind.js"></script>
 
   <script>
     let negocicaoController=new NegociacaoController();
-  </script>
-  <script>
-      //executa ao inserir
-      
-      lista.adiciona(new Negociacao(new Date(),1,100));
-      lista.esvazia();
   </script>
 </body>
 </html>
